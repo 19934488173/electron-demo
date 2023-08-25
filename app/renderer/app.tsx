@@ -1,11 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+
+import Title from './Title';
 
 function App() {
-  return <div>这是 Electron + React </div>;
+  return (
+    <>
+      <h1>Hello from Electron + React!</h1>
+      <Title tip="11111" />
+    </>
+  );
 }
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(<App />);
+export default App;
