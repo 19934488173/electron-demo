@@ -1,13 +1,12 @@
 import React from 'react';
-
-import Title from './Title';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
 function App() {
   return (
-    <>
-      <h1>Hello from Electron + React!</h1>
-      <Title tip="11111" />
-    </>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 }
 
