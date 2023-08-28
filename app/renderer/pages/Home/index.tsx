@@ -1,35 +1,19 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { mutate } from 'swr';
+
+import { useHomeVisible, VISIBLE } from '@src/data/use-home-data';
 
 function Home() {
+  const { data: homeVisible } = useHomeVisible();
+  console.log(homeVisible);
+
   return (
-    <>
-      <div id="sidebar">
-        <h1>React Router Contacts</h1>
-        <div>
-          <form id="search-form" role="search">
-            <input id="q" aria-label="Search contacts" placeholder="Search" type="search" name="q" />
-            <div id="search-spinner" aria-hidden hidden={true} />
-          </form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/contacts/1">Your Name</Link>
-            </li>
-            <li>
-              <Link to="/contacts/2">Your Friend</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div id="detail">
-        <Outlet />
-      </div>
-    </>
+    <div>
+      <div>一个模板简历制作平台, 让你的简历更加出众</div>
+      <Link to="resume/1">resume</Link>
+      <div onClick={() => mutate(VISIBLE, true)}>测试一下值的变化</div>
+    </div>
   );
 }
 
