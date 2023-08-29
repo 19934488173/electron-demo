@@ -1,8 +1,11 @@
+import { app, BrowserWindow, ipcMain } from 'electron';
 /**
  * @desc electron 主入口
  */
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+
+/** electron 提供一个 app 模块，该模块提供了一个 getAppPath() 方法，用于获取当前应用程序在本机中的目录路径 */
+const ROOT_PATH = path.join(app.getAppPath(), '../');
 
 let mainWindow;
 
@@ -31,3 +34,8 @@ function createWindow() {
 }
 
 app.on('ready', createWindow);
+
+// 👇 监听渲染进程发的消息并回复
+ipcMain.on('get-root-path', (event) => {
+  event.reply('reply-root-path', ROOT_PATH);
+});

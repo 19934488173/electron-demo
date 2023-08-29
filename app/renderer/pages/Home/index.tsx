@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { mutate } from 'swr';
 
-import { useHomeVisible, VISIBLE } from '@src/data/use-home-data';
+import { VISIBLE } from '@src/data/use-home-data';
 
 function Home() {
-  const { data: homeVisible } = useHomeVisible();
-  console.log(homeVisible);
+  // const { data: homeVisible } = useHomeVisible();
 
   return (
     <div>
